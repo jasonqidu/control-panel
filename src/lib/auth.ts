@@ -1,5 +1,6 @@
-import CredentialsProvider from "next-auth/providers/credentials"
+// src/lib/auth.ts
 import type { NextAuthOptions } from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -24,14 +25,16 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
-  // 👇 nueva configuración de la sesión
   session: {
-    strategy: "jwt", // recomendada para credenciales
-    maxAge: 60 * 60, // 1 hora (en segundos)
+    strategy: "jwt",
+    maxAge: 60 * 60, // 1 hour
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      // Fuerza que después de login/logout vaya siempre al dashboard
+      // ✅ Allow going back to the login or auth-related pages
+      if (url.startsWith("/auth")) {
+        return url
+      }
       return `${baseUrl}/dashboard`
     },
   },

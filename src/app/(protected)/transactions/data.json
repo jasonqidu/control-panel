@@ -1,0 +1,5 @@
+[
+  { "id": 1, "transactionId": "TXN-1001", "type": "Payment", "status": "Completed", "amount": "$1,200" },
+  { "id": 2, "transactionId": "TXN-1002", "type": "Refund", "status": "Pending", "amount": "$250" },
+  { "id": 3, "transactionId": "TXN-1003", "type": "Payment", "status": "Failed", "amount": "$800" }
+]

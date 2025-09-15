@@ -9,6 +9,7 @@ import {
   IconCreditCard,
   IconChartBar,
   IconInnerShadowTop,
+  IconSpeakerphone,
 } from "@tabler/icons-react"
 
 import { NavUser } from "@/components/nav-user"
@@ -30,24 +31,29 @@ const data = {
   },
   navMain: [
     {
-      title: "Home",
+      title: "Dashboard",
       url: "/dashboard",
       icon: IconDashboard,
     },
     {
       title: "Customers",
-      url: "/dashboard/customers",
+      url: "/customers",
       icon: IconUsers,
     },
     {
       title: "Transactions",
-      url: "/dashboard/transactions",
+      url: "/transactions",
       icon: IconCreditCard,
     },
     {
       title: "Analytics",
-      url: "/dashboard/analytics",
+      url: "/analytics",
       icon: IconChartBar,
+    },
+    {
+      title: "Campaigns",
+      url: "/campaigns",
+      icon: IconSpeakerphone,
     },
   ],
 }
@@ -57,7 +63,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
-      {/* Header con logo */}
+  {/* Header con logo */}
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -65,9 +71,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link href="/dashboard">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+              <Link href="/dashboard" className="flex items-center gap-2">
+                <img
+                  src="/logo.svg"
+                  alt="Qidu.ai Logo"
+                  className="h-6 w-auto"
+                />
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -78,7 +87,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarMenu>
           {data.navMain.map((item) => {
-            // activo si el pathname empieza con la url (sirve también para subrutas)
             const isActive =
               pathname === item.url || pathname.startsWith(item.url + "/")
 

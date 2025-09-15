@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Spring Promo", "channel": "Email", "status": "Running", "target": "5,000 leads", "budget": "$3,000" },
+  { "id": 2, "name": "Summer Social Ads", "channel": "Facebook", "status": "Planned", "target": "10,000 impressions", "budget": "$5,000" },
+  { "id": 3, "name": "Holiday Retargeting", "channel": "Google Ads", "status": "Draft", "target": "2,000 clicks", "budget": "$2,500" }
+]

@@ -1,0 +1,5 @@
+[
+  { "id": 1, "metric": "Sessions", "value": "18,400" },
+  { "id": 2, "metric": "Bounce Rate", "value": "42%" },
+  { "id": 3, "metric": "Conversion", "value": "3.1%" }
+]

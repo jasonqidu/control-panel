@@ -43,9 +43,13 @@ export function LoginForm({
           <form onSubmit={handleSubmit} className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Hola, de nuevo</h1>
+                <img
+                  src="/logo.svg" // 👈 logo en /public
+                  alt="Qidu.ai Logo"
+                  className="h-10 w-auto mb-2"
+                />
                 <p className="text-muted-foreground text-balance">
-                  Ingresa a Qidu Lab
+                  Welcome back!
                 </p>
               </div>
 
@@ -66,7 +70,7 @@ export function LoginForm({
               </div>
 
               <div className="grid gap-3">
-                <Label htmlFor="password">Código Secreto</Label>
+                <Label htmlFor="password">Password</Label>
                 <Input
                   id="password"
                   type="password"
@@ -92,11 +96,6 @@ export function LoginForm({
           </div>
         </CardContent>
       </Card>
-
-      <div className="text-muted-foreground text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4 *:[a]:hover:text-primary">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </div>
     </div>
   )
 }
