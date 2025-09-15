@@ -24,6 +24,11 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  // 👇 nueva configuración de la sesión
+  session: {
+    strategy: "jwt", // recomendada para credenciales
+    maxAge: 60 * 60, // 1 hora (en segundos)
+  },
   callbacks: {
     async redirect({ url, baseUrl }) {
       // Fuerza que después de login/logout vaya siempre al dashboard
