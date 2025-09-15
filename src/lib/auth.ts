@@ -24,4 +24,10 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Fuerza que después de login/logout vaya siempre al dashboard
+      return `${baseUrl}/dashboard`
+    },
+  },
 }
