@@ -1,5 +1,5 @@
 "use client"
-
+import { signOut } from "next-auth/react"
 import {
   IconCreditCard,
   IconDotsVertical,
@@ -98,10 +98,12 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <IconLogout />
-              Log out
-            </DropdownMenuItem>
+<DropdownMenuItem
+  onClick={() => signOut({ callbackUrl: "/auth/login" })}
+>
+  <IconLogout />
+  Log out
+</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
