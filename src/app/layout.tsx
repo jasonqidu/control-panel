@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "Generated yeah by create next app",
+  title: "Qidu Lab",
+  description: "This is our playground for building awesome stuff.",
 };
 
 export default function RootLayout({
