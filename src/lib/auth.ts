@@ -1,7 +1,7 @@
-import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import type { NextAuthOptions } from "next-auth"
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -11,11 +11,10 @@ export const authOptions = {
       },
       async authorize(credentials) {
         if (
-          credentials &&
-          credentials.email === process.env.AUTH_EMAIL &&
-          credentials.password === process.env.AUTH_PASSWORD
+          credentials?.email === process.env.AUTH_EMAIL &&
+          credentials?.password === process.env.AUTH_PASSWORD
         ) {
-          return { id: "1", name: "Admin", email: credentials.email }
+          return { id: "1", name: "Admin", email: credentials!.email }
         }
         return null
       },
@@ -26,7 +25,3 @@ export const authOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
 }
-
-const handler = NextAuth(authOptions)
-
-export { handler as GET, handler as POST }
