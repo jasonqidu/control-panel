@@ -16,7 +16,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The root route immediately redirects based on your session state—authenticated users land on the dashboard while guests are sent to the login screen. To experiment with the UI, edit a page that actually renders content such as `src/app/(protected)/dashboard/page.tsx` or `src/app/auth/login/page.tsx`. The app auto-updates as you edit those files.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
